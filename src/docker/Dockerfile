@@ -15,33 +15,3 @@ IMPORT alpine/_main
 #
 
 IMPORT alpine-ext/_main
-
-#
-# Image: busybox
-#
-
-IMPORT busybox AS busybox
-
-#
-# Image: debian
-#
-
-IMPORT debian/_main
-
-#
-# Image: ext-debian
-#
-
-IMPORT debian-ext AS ext-debian
-
-#
-# Image: ubuntu
-#
-
-IMPORT ubuntu/_main
-
-#
-# Image: ext-ubuntu
-#
-
-IMPORT ubuntu-ext AS ext-ubuntu
