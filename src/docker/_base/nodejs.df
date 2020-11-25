@@ -1,24 +1,10 @@
 FROM base--image--alpine AS fetcher-glibc
 
-ADD _script/nodejs-glibc.sh nodejs.sh
-RUN sh nodejs.sh
-
-
-
 FROM scratch AS glibc
 
 COPY --from=fetcher-glibc /files /
 
-
-
-
-
 FROM base--image--alpine AS fetcher-musl
-
-ADD _script/nodejs-musl.sh nodejs.sh
-RUN sh nodejs.sh
-
-
 
 FROM scratch AS musl
 

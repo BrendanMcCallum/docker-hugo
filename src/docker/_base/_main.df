@@ -6,10 +6,6 @@ IMPORT certs AS certs
 
 IMPORT golang AS golang
 
-IMPORT nodejs AS nodejs
-
-IMPORT pandoc AS pandoc
-
 IMPORT files AS files
 
 

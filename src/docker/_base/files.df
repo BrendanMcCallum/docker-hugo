@@ -13,16 +13,3 @@ COPY --from=fetcher /files/_script /
 FROM scratch AS alpine
 
 COPY --from=fetcher /files/alpine /
-
-
-FROM scratch AS busybox
-
-COPY --from=fetcher /files/busybox /
-
-
-FROM scratch AS debian
-
-COPY --from=fetcher /files/debian /
-
-
-FROM debian AS ubuntu

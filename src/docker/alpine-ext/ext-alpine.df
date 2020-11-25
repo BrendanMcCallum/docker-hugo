@@ -3,7 +3,6 @@ FROM scratch as image
 COPY --from=base--files--alpine / /
 COPY --from=base--hugo--extended / /
 COPY --from=base--certs / /
-COPY --from=base--nodejs--musl / /
 COPY --from=base--golang / /
 
 
@@ -17,18 +16,12 @@ ENV HUGO_BIND="0.0.0.0" \
     HUGO_ENV="DEV" \
     HUGO_EDITION="extended" \
     HUGO_CACHEDIR="/tmp" \
-    NODE_PATH=".:/lib/node_modules" \
     GOROOT="/usr/local/lib/go" \
     HOME="/tmp"
 
 RUN apk add --no-cache libc6-compat libstdc++ busybox-suid bash bash-completion git tzdata make
 
 COPY --from=image / /
-
-RUN npm install -g autoprefixer@10.0.2 postcss@8.1.7 postcss-cli@8.3.0 yarn@1.22.10 @babel/cli @babel/core  \
- && find /tmp -mindepth 1 -maxdepth 1 | xargs rm -rf \
- && mkdir -p /src /target \
- && chmod a+w /src /target
 
 EXPOSE 1313
 
